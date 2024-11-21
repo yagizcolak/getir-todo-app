@@ -40,11 +40,11 @@ npm install
 
 Set Up Environment Variables (.env)
 
-(Already included in GitHub for the sake of this project, this wouldn't be the case in real life)
 ```
 PORT=5000
 MONGODB_URI=mongodb+srv://admin:admin@cluster0.iednc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 ```
+Note: In a real-world application, .env files should not be pushed to GitHub. For the sake of this project, they are included to simplify setup.
 
 #### **- Frontend Dependencies**
 
@@ -56,10 +56,12 @@ npm install
 
 Set Up Environment Variables (.env.development)
 
-(Already included in GitHub for the sake of this project, this wouldn't be the case in real life)
 ```
 REACT_APP_API_BASE_URL=http://localhost:5000/api
 ```
+Note: In a real-world application, .env files should not be pushed to GitHub. For the sake of this project, they are included to simplify setup.
+
+<br/>
 
 ### **3. Running the Application**
 
@@ -81,7 +83,7 @@ Inside the frontend directory:
 npm start
 ```
 
-• The backend server will start on [http://localhost:3000](http://localhost:3000).
+• The frontend server will start on [http://localhost:3000](http://localhost:3000).
   
 
 **Note:** Make sure ports 3000 and 5000 are available on your machine.
@@ -92,6 +94,8 @@ npm start
 
 Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
+The frontend is configured to communicate with the backend at http://localhost:5000/api. Ensure both the frontend and backend are running.
+
 <br/>
 
 ### **5. Deployment**
@@ -101,6 +105,18 @@ The application is deployed and accessible at:
 •  *Frontend URL:* [https://getir-todo-frontend.onrender.com](https://getir-todo-frontend.onrender.com)
 
 •  *Backend URL:* [https://getir-todo-backend.onrender.com/api/tasks](https://getir-todo-backend.onrender.com/api/tasks)
+
+<br/>
+
+Features
+
+	•	Add new tasks with details like title, category, status, and deadline.
+	•	View a list of all tasks with options to edit or delete.
+	•	Filter tasks based on keyword, category, and status.
+	•	Responsive design for optimal viewing on various devices.
+	•	Notifications for success and error messages.
+	•	Unit tests to ensure component reliability.
+	•	End-to-end testing with Cypress.
 
 <br/>
 
