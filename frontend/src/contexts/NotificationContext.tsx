@@ -1,6 +1,6 @@
 // src/contexts/NotificationContext.tsx
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useCallback } from "react";
 import { Snackbar, Alert, AlertColor } from "@mui/material";
 
 interface Notification {
@@ -31,9 +31,10 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [notification, setNotification] = useState<Notification | null>(null);
 
-  const showNotification = (message: string, severity: AlertColor) => {
+  // memoizing the function to prevent infinite loops in useEffect
+  const showNotification = useCallback((message: string, severity: AlertColor) => {
     setNotification({ message, severity });
-  };
+  }, []);
 
   const handleClose = () => {
     setNotification(null);

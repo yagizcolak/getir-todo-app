@@ -4,12 +4,14 @@ import React, { useState, useEffect } from "react";
 import { Box, Button } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
-import { useAppDispatch } from "../hooks";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { selectLoading } from "../selectors";
+import { useNotification } from "../contexts/NotificationContext";
 import { fetchTasks } from "../slices";
 import { TaskModal, TaskList, FilterBar } from "../components";
 import { TaskStatus, TaskCategory } from "../constants";
 import { styled } from "@mui/material/styles";
-
+import { Loader } from "../components";
 
 // Styled Components
 const AddTaskButton = styled(Button)(({ theme }) => ({
@@ -46,6 +48,9 @@ const ContainerBox = styled(Box)(({ theme }) => ({
 
 const TasksPage: React.FC = () => {
   const dispatch = useAppDispatch();
+  const { showNotification } = useNotification();
+  const loading = useAppSelector(selectLoading);
+
   const [openAddModal, setOpenAddModal] = useState<boolean>(false);
 
   // Filter states
@@ -54,8 +59,19 @@ const TasksPage: React.FC = () => {
   const [selectedStatus, setSelectedStatus] = useState<string>("");
 
   useEffect(() => {
-    dispatch(fetchTasks());
-  }, [dispatch]);
+    const fetchData = async () => {
+      try {
+        await dispatch(fetchTasks()).unwrap();
+      } catch (error: any) {
+        showNotification(
+          error || 'An error occurred while fetching tasks. Please try again.',
+          'error'
+        );
+      }
+    };
+
+    fetchData();
+  }, [dispatch, showNotification]);
 
   const handleOpenModal = () => {
     setOpenAddModal(true);
@@ -83,6 +99,10 @@ const TasksPage: React.FC = () => {
     category: "Work" as TaskCategory,
     deadline: null, // Empty deadline
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <>

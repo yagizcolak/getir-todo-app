@@ -1,11 +1,11 @@
 // src/components/TaskList.tsx
 
 import React, { useState, useMemo } from "react";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles"; // Import styled from MUI
 
 import { useAppSelector } from "../../hooks";
-import { selectTasks, selectLoading, selectError } from "../../selectors";
+import { selectTasks, selectLoading } from "../../selectors";
 import TaskItem from "./TaskItem";
 import { Task } from "../../types/tasks";
 import TaskModal from "./TaskModal";
@@ -26,12 +26,6 @@ const TaskListContainer = styled(Box)(({ theme }) => ({
   flexGrow: 1,
 }));
 
-const ErrorMessage = styled(Typography)(({ theme }) => ({
-  color: theme.palette.error.main,
-  textAlign: "center",
-  marginTop: theme.spacing(2),
-}));
-
 const TaskList: React.FC<TaskListProps> = ({
   searchTerm,
   selectedCategory,
@@ -39,7 +33,6 @@ const TaskList: React.FC<TaskListProps> = ({
 }) => {
   const tasks = useAppSelector(selectTasks);
   const loading = useAppSelector(selectLoading);
-  const error = useAppSelector(selectError);
 
   const [openEditModal, setOpenEditModal] = useState<boolean>(false);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
@@ -81,10 +74,6 @@ const TaskList: React.FC<TaskListProps> = ({
 
   if (loading) {
     return <Loader />;
-  }
-
-  if (error) {
-    return <ErrorMessage variant="h6">Error: {error}</ErrorMessage>;
   }
 
   if (displayedTasks.length === 0) {
