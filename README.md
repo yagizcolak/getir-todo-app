@@ -102,9 +102,9 @@ The frontend is configured to communicate with the backend at http://localhost:5
 
 The application is deployed and accessible at:
 
-•  *Frontend URL:* [https://getir-todo-frontend.onrender.com](https://getir-todo-frontend.onrender.com)
+•  *Frontend URL:* [https://yc-getir-tasks.onrender.com](https://yc-getir-tasks.onrender.com)
 
-•  *Backend URL:* [https://getir-todo-backend.onrender.com/api/tasks](https://getir-todo-backend.onrender.com/api/tasks)
+•  *Backend URL:* [https://getir-todo-app.onrender.com/api/tasks](https://getir-todo-app.onrender.com/api/tasks)
 
 <br/>
 
