@@ -5,7 +5,15 @@
 
 A simple and responsive to-do web application that allows users to manage their tasks effectively. Users can add, view, edit, and delete tasks, as well as filter them based on various criteria.
 
-  
+
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/29be1b40-3d7b-44d1-a35c-6f7a5f7b73ad" width="600" />
+  <img src="https://github.com/user-attachments/assets/bec9a217-e378-426f-8db1-6e73b119261f" width="600" />
+  <img src="https://github.com/user-attachments/assets/18118b60-4d62-4240-8b5d-7c897751f8fd" width="600" />
+  <img src="https://github.com/user-attachments/assets/8ec06f6f-e4bb-43c5-b3cf-bb48879d11dc" width="600" />
+  <img src="https://github.com/user-attachments/assets/9a44abb5-126f-4328-a843-a9726fc62b82" width="600" />
+</p>
 
   
 
